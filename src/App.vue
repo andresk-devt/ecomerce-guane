@@ -5,10 +5,17 @@
 </template>
 
 <script>
+import { mapActions, mapState } from 'vuex'
 
 export default {
   name: 'app',
-  components: {
+  components: {      
+  },
+  methods: {
+    ...mapActions(['cargarLoadStorage'])
+  },
+  created(){
+    this.cargarLoadStorage()
   }
 };
 </script>

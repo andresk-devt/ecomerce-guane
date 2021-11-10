@@ -22,3 +22,12 @@ export const clearCatItems = ({commit}) => {
 export const putAdminName = ({commit}) => {
     commit('addName');
 }
+
+export const cargarLoadStorage = ({commit}) => {
+    if(localStorage.getItem('cart')){
+        const cart = JSON.parse(localStorage.getItem('cart'))
+        commit('cargar', cart)
+        return 
+    }
+    localStorage.setItem('cart', JSON.stringify([]))
+}

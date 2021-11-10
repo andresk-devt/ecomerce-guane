@@ -19,3 +19,7 @@ export const userName = (state) => {
 export const order = (state) => {
     return state.cart;
 }
+
+export const cart = (state) => {
+    return state.cart;
+}

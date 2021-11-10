@@ -22,12 +22,14 @@ export const ADD_TO_CART = (state, {product, count}) =>{
         product,
         count
     })
+    localStorage.setItem('cart', JSON.stringify(state.cart));
 }
 
 export const REMOVE_PRODUCT_FROM_CART = (state, product) => {
     state.cart = state.cart.filter(item => {
         return item.product.id !== product.id;
     })
+    localStorage.setItem('cart', JSON.stringify(state.cart));
 }
 
 export const CLEAR_CART_ITEMS = (state) => {
@@ -39,4 +41,8 @@ export const addName = (state,{ name , email}) => {
         name,
         email
     })
+}
+
+export const cargar = (state, payload) => {
+    state.cart = payload;
 }
