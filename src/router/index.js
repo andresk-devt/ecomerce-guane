@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import Product from '../views/Product.vue'
 
 Vue.use(VueRouter)
 
@@ -23,6 +24,12 @@ const routes = [
     },
   ]
   },
+  {
+    path: '/admin/products/:id',
+    component: Product,
+    name: 'products',
+    props: true
+  }
 ]
 
 const router = new VueRouter({

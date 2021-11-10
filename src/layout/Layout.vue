@@ -17,12 +17,18 @@
               aria-haspopup="true"
               aria-expanded="false"
             >
-              0 Cart
+              {{cartItemCount}} Cart
             </button>
             <div @click="$event.stopPropagation();">
                 <mini-cart></mini-cart>
             </div>
           </div>
+        </div>
+        <div v-if="userName.name == null && userName.email == null ">
+            Welcome admin
+        </div>
+        <div v-else>
+            Bienvenido {{ userName.name }} / {{ userName.email }}
         </div>
       </div>
     </nav>
@@ -55,9 +61,14 @@
 
 <script>
 import MiniCart from '../components/MiniCart.vue';
+import { mapGetters } from 'vuex'
 
 export default {
-    components: { MiniCart }
+    components: { MiniCart },
+    computed: {
+        ...mapGetters(["cartItemCount"]),
+        ...mapGetters(["userName"])
+    }
 };
 </script>
 
